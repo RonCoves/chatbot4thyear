@@ -1,8 +1,10 @@
+# chatbot.py
+
 # x00204989 Ron Coveney - Proof of concept
 import requests
 
 def send_message(message):
-    url = "https://flaskproj4thyr.azurewebsites.net/webhook"
+    url = "https://flaskproj4thyr.azurewebsites.net/webhook"  # Updated URL
     payload = {"message": {"text": message}}
     headers = {"Content-Type": "application/json"}
 
