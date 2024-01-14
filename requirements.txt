@@ -4,9 +4,9 @@ cymem==2.0.8
 idna==3.6
 itsdangerous==2.1.2
 MarkupSafe==2.1.3
-numpy<1.20,>=1.19
+# numpy<1.20,>=1.19
 packaging==23.2
-setuptools>=60.9.3
+setuptools==57.5.0
 smart-open==6.4.0
 spacy-legacy==3.0.12
 spacy-loggers==1.0.5
