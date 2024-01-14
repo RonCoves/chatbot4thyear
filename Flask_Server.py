@@ -5,7 +5,7 @@ import sys
 app = Flask(__name__)
 
 
-@app.route('/webhook', methods=['POST'])
+@app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
     try:
         print("Request received!")
@@ -18,6 +18,7 @@ def webhook():
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     try:
