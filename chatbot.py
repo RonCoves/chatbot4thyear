@@ -1,6 +1,4 @@
 # chatbot.py
-
-# x00204989 Ron Coveney - Proof of concept
 import requests
 
 def send_message(message):
