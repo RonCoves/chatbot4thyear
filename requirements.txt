@@ -1,3 +1,5 @@
+# requirements
+
 charset-normalizer~=2.0.0; python_version >= "3"
 colorama==0.4.6
 cymem==2.0.8
