@@ -2,6 +2,7 @@
 
 import requests
 
+
 def send_message(message):
     url = "https://flaskproj4thyr.azurewebsites.net/webhook"
     payload = {"message": {"text": message}}
@@ -24,6 +25,7 @@ def send_message(message):
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
         return None
+
 
 if __name__ == '__main__':
     while True:
