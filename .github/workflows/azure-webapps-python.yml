@@ -78,7 +78,7 @@ jobs:
           name: python-app
           path: .
 
-      - name: Azure Login
+      - name: hub_conn
         uses: azure/login@v1
         with:
           creds: ${{ secrets.github_Conn}}
