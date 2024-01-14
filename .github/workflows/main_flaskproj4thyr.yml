@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v2
         with:
-          python-version: '3.50'  # Updated Python version
+          python-version: '3.12'  # Updated Python version
 
       - name: Update Pip
         run: |
