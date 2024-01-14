@@ -1,24 +1,28 @@
 # x00204989 Ron Coveney - Proof of concept
 import requests
 
-
 def send_message(message):
-    url = "https://4yrserverchatbot.azurewebsites.net/webhook"
+    url = "https://flaskproj4thyr.azurewebsites.net/webhook"
     payload = {"message": {"text": message}}
     headers = {"Content-Type": "application/json"}
-    response = requests.post(url, json=payload, headers=headers)
 
-    print(f"Request Sent: {response.request.url}")
-    print(f"Request Body: {response.request.body}")
-    print(f"Response Status Code: {response.status_code}")
-    print(f"Response Content: {response.content}")
+    try:
+        response = requests.post(url, json=payload, headers=headers)
 
-    if response.status_code == 200 and response.text:
-        return response.json()["text"]
-    else:
-        print(f"Error: {response.status_code}")
+        print(f"Request Sent: {response.request.url}")
+        print(f"Request Body: {response.request.body}")
+        print(f"Response Status Code: {response.status_code}")
+        print(f"Response Content: {response.content}")
+
+        if response.status_code == 200 and response.text:
+            return response.json()["text"]
+        else:
+            print(f"Error: {response.status_code}")
+
         return None
-
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        return None
 
 if __name__ == '__main__':
     while True:
