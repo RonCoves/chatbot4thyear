@@ -1,0 +1,14 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App on Azure</title>
+</head>
+<body>
+    <h1>Flask App Connected to Azure</h1>
+    <p>This is a simple page to show that the Flask app is connected and receiving information from the webhook.</p>
+</body>
+</html>
