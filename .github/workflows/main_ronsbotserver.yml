@@ -20,21 +20,33 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.12'
+          python-version: '3.8'
 
+      - name: Update Pip
+        run: |
+          python -m pip install --upgrade pip
+              
+      - name: Install build dependencies
+        run: |
+          sudo apt-get install -y python3-dev python3-venv
+      - name: Remove virtual environment
+        run: deactivate || true && rm -rf venv
+    
       - name: Create and start virtual environment
         run: |
           python -m venv venv
           source venv/bin/activate
-      
+      - name: Upgrade pip in virtual environment
+        run: |
+          python -m pip install --upgrade pip
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-
+            
+          # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+    
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
-
+    
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
@@ -42,7 +54,6 @@ jobs:
           path: |
             release.zip
             !venv/
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -50,29 +61,28 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
-
+      id-token: write # This is required for requesting the JWT
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: python-app
-
+    
       - name: Unzip artifact for deployment
         run: unzip release.zip
-
-      
+    
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FF8D599BD0AA4264B416E5187035ED3B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_499904F62AAE45A08DB134F57C6C5D77 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_75CD12994E4E4FBAADF1694CFA50D519 }}
-
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_853445FA380E4C2C9A1A13763A1F4D85 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_9BF96AEC85E84031B943209AC16A1EFB }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_327B38BA13EA472B875328C021FAAA59 }}
+    
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'RonsBotserver'
+          app-name: 'flaskproj4thyr'
           slot-name: 'Production'
-          
+              
