@@ -5,6 +5,7 @@ import sys
 
 app = Flask(__name__)
 
+
 # Existing route for webhook
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
@@ -20,10 +21,12 @@ def webhook():
         print(f"Error: {e}", file=sys.stderr)
         return jsonify({"error": str(e)}), 500
 
+
 # New route for a simple page
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 if __name__ == '__main__':
     try:
