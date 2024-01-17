@@ -12,6 +12,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 8082 available to the world outside this container
 EXPOSE 8082
+EXPOSE 80
+EXPOSE 443
 
 # Define environment variable
 ENV NAME World
