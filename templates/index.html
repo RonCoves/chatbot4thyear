@@ -1,14 +1,20 @@
-<!-- templates/index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask App on Azure</title>
+    <title>Chatbot UI</title>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <h1>Flask App Connected to Azure</h1>
-    <p>This is a simple page to show that the Flask app is connected and receiving information from the webhook.</p>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="static/script.js"></script>
 </body>
 </html>
