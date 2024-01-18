@@ -3,3 +3,8 @@ flask-talisman==0.7.0
 bleach==4.1.0
 Flask==1.1.2
 Werkzeug==0.16.1
+jinja2==2.11.2
+Flask==1.1.2
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+itsdangerous==1.1.0
