@@ -20,7 +20,7 @@ def validate_input(data):
 
 
 @app.route('/webhook', methods=['POST'])
-#definewebhook
+
 def webhook():
     """
     Webhook endpoint to receive and process incoming messages.
