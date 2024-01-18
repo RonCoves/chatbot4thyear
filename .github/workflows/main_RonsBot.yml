@@ -22,7 +22,7 @@ jobs:
     - name: Log in to registry
       uses: docker/login-action@v2
       with:
-        registry: https://ronsbotreg.azurecr.io/
+        registry: https://ronscbreg.azurecr.io/
         username: ${{ secrets.AzureAppService_ContainerUsername_e72f7089a6b64cb99cb5ca890a776389 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_e52b1094ba594b739f8b93ac18972b7f }}
 
